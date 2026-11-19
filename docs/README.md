@@ -28,6 +28,7 @@ This directory holds the reference catalog, hardware architecture notes, memory 
 | [03-toolchain-linker-and-startup-guide.md](03-toolchain-linker-and-startup-guide.md) | `arm-none-eabi-gcc` flags, ELF sections, VMA/LMA, and C-runtime startup checklist | 01, 02 |
 | [04-freertos-cortex-m7-notes.md](04-freertos-cortex-m7-notes.md) | FreeRTOS `ARM_CM7` port requirements, `SVC`/`PendSV`/`SysTick`, and `BASEPRI` priority rules | 06 |
 | [05-emulation-and-testing-environment.md](05-emulation-and-testing-environment.md) | Hardware-free emulation options (**Renode** vs. QEMU) and GDB test workflow | All (01–06) |
+| [06-cmake-cross-compilation-reference.md](06-cmake-cross-compilation-reference.md) | CMake syntax, bare-metal toolchain variables, and `CMakeLists.txt` commands | 01 |
 
 ---
 
