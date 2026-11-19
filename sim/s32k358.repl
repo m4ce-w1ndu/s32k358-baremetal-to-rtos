@@ -1,0 +1,16 @@
+// Renode virtual platform for NXP S32K358 bare-metal & FreeRTOS learning
+// Builds on Renode's built-in NXP S32K388 EVB platform (shared S32K3xx core & peripherals):
+//   - cpu0 (Arm Cortex-M7) + nvic0 (0xE000E000)
+//   - program_flash @ 0x00400000 (8 MB)
+//   - itcm0 @ 0x00000000 (32 KB), dtcm0 @ 0x20000000 (64 KB)
+//   - sram0 @ 0x20400000 (256 KB), sram1 @ 0x20440000 (256 KB), sram2 @ 0x20480000 (256 KB)
+//   - mscm @ 0x40260000, swt0 @ 0x40270000, stm0 @ 0x40274000
+//   - siul2 @ 0x40290000 (with led1_red/green/blue on PTF22..24 & led2_red/green/blue on PTF17..19)
+//   - mc_cgm @ 0x402D8000, mc_me @ 0x402DC000, plldig @ 0x402E0000
+//   - lpuart0 @ 0x40328000 .. lpuart15
+
+using "platforms/boards/nxp-s32k388evb.repl"
+
+// Adjust SysTick reference clock to S32K358 max core frequency (240 MHz)
+nvic0:
+    systickFrequency: 240000000

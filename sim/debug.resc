@@ -1,0 +1,25 @@
+# Debug S32K358 firmware in Renode with GDB (halted at reset)
+# Usage:
+#   Terminal 1: renode --console --disable-xwt sim/debug.resc
+#   Terminal 2: gdb-multiarch build/firmware.elf -ex "target remote :3333"
+
+$name?="s32k358"
+$elf?=@build/firmware.elf
+
+mach create $name
+machine LoadPlatformDescription @sim/s32k358.repl
+
+logLevel -1 sysbus.siul2.led1_red
+logLevel -1 sysbus.siul2.led1_green
+logLevel -1 sysbus.siul2.led1_blue
+
+showAnalyzer sysbus.lpuart0
+
+macro reset
+"""
+    sysbus LoadELF $elf
+"""
+
+runMacro $reset
+machine StartGdbServer 3333
+echo "GDB server listening on localhost:3333. Connect with: gdb-multiarch <elf> -ex 'target remote :3333'"

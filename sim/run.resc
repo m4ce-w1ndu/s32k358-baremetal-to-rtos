@@ -1,0 +1,26 @@
+# Run S32K358 firmware in Renode
+# Usage:
+#   renode --console --disable-xwt sim/run.resc
+#   renode --console --disable-xwt -e '$elf=@build/my_app.elf' sim/run.resc
+
+$name?="s32k358"
+$elf?=@build/firmware.elf
+
+mach create $name
+machine LoadPlatformDescription @sim/s32k358.repl
+
+# Log LED state changes (for Milestone 03 GPIO/SIUL2 blinky verification)
+logLevel -1 sysbus.siul2.led1_red
+logLevel -1 sysbus.siul2.led1_green
+logLevel -1 sysbus.siul2.led1_blue
+
+# Print LPUART0 output directly to the console log (for Milestone 05 & 06)
+showAnalyzer sysbus.lpuart0
+
+macro reset
+"""
+    sysbus LoadELF $elf
+"""
+
+runMacro $reset
+start
