@@ -11,9 +11,9 @@ This repository documents the journey of building a complete firmware stack with
 * Port and integrate the FreeRTOS kernel on top of custom hardware drivers.
 
 ## 🗺️ Roadmap & Milestones
-* [ ] **01 - Toolchain & Linker Script:** Minimal CMake + `arm-none-eabi-gcc` setup and Flash/SRAM memory mapping.
-* [ ] **02 - Startup & C-Runtime:** Vector table definition, stack initialization, `.data` copy, and `.bss` zeroing.
-* [ ] **03 - Clock & GPIO (SIUL2):** Peripheral clock gating (`MC_ME`) and register-level LED blinky driver.
+* [x] **01 - Toolchain & Linker Script:** Minimal CMake + `arm-none-eabi-gcc` setup and Flash/SRAM memory mapping.
+* [x] **02 - Startup & C-Runtime:** Vector table definition, stack initialization, `.data` copy, and `.bss` zeroing.
+* [x] **03 - Clock & GPIO (SIUL2):** Peripheral clock gating (`MC_ME`) and register-level LED blinky driver.
 * [ ] **04 - SysTick & NVIC:** Core system timer configuration and non-blocking millisecond delays.
 * [ ] **05 - UART Driver (LPUART):** Serial communication driver for lightweight `printf` debugging.
 * [ ] **06 - FreeRTOS Port:** Kernel integration (`GCC/ARM_CM7`), interrupt mapping (`SVC`, `PendSV`, `SysTick`), and concurrent driver tasks.

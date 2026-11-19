@@ -21,6 +21,8 @@ add_executable(
 	${FW_ELF}
 	"src/main.c"
     "src/startup/startup_s32k358.S"
+    "src/drivers/mc_me.c"
+    "src/drivers/siul2.c"
 )
 
 # Include directories

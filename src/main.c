@@ -1,17 +1,16 @@
-#include <stdint.h>
-
-// g_data_test - verifies proper data copy from FLASH to SRAM
-volatile uint32_t g_data_test = 0xCAFEBABEU;
-
-// g_bss_test - verifies BSS zeroing on startup
-volatile uint32_t g_bss_test = 0;
+#include <drivers/mc_me.h>
+#include <drivers/siul2.h>
 
 int main(void) {
-    volatile uint32_t counter = 0;
-    (void)(g_data_test == 0xCAFEBABEU);
+    uint8_t led_state = 0;
+
+    mc_me_enable_prtn1_cofb_clock(1U, 0U);
+    siul2_gpio_init_output(LED_RED_PIN);
 
     for (;;) {
-        counter++;
-        g_bss_test++;
+        siul2_gpio_write(LED_RED_PIN, led_state);
+        led_state = !led_state;
+
+        for (volatile uint32_t i = 0; i < 1000000U; i++);
     }
 }
