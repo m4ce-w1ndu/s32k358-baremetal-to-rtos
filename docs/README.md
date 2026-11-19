@@ -29,6 +29,7 @@ This directory holds the reference catalog, hardware architecture notes, memory 
 | [04-freertos-cortex-m7-notes.md](04-freertos-cortex-m7-notes.md) | FreeRTOS `ARM_CM7` port requirements, `SVC`/`PendSV`/`SysTick`, and `BASEPRI` priority rules | 06 |
 | [05-emulation-and-testing-environment.md](05-emulation-and-testing-environment.md) | Hardware-free emulation options (**Renode** vs. QEMU) and GDB test workflow | All (01–06) |
 | [06-cmake-cross-compilation-reference.md](06-cmake-cross-compilation-reference.md) | CMake syntax, bare-metal toolchain variables, and `CMakeLists.txt` commands | 01 |
+| [07-arm-thumb2-assembly-quickstart.md](07-arm-thumb2-assembly-quickstart.md) | 1-page GNU ARM Thumb-2 assembly cheat sheet for Cortex-M7 startup | 02 |
 
 ---
 
