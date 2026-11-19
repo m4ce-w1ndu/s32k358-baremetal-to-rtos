@@ -8,7 +8,7 @@ volatile uint32_t g_bss_test = 0;
 
 int main(void) {
     volatile uint32_t counter = 0;
-    g_data_test = 0xCAFEBABEU;
+    (void)(g_data_test == 0xCAFEBABEU);
 
     for (;;) {
         counter++;
